@@ -3142,6 +3142,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@openzeppelin/contracts@npm:^5.4.0":
+  version: 5.4.0
+  resolution: "@openzeppelin/contracts@npm:5.4.0"
+  checksum: 8a0c64266f5213801029251fdc9815798917b311b7fc9acb94db13a479a3a0d044e0312f57e739f13b87161105157cb8da023124b4f026cf6b72a718a333ef64
+  languageName: node
+  linkType: hard
+
 "@openzeppelin/contracts@npm:~5.0.2":
   version: 5.0.2
   resolution: "@openzeppelin/contracts@npm:5.0.2"
@@ -14249,11 +14256,11 @@ __metadata:
   linkType: hard
 
 "prettier@npm:*, prettier@npm:^3.5.3":
-  version: 3.7.2
-  resolution: "prettier@npm:3.7.2"
+  version: 3.7.3
+  resolution: "prettier@npm:3.7.3"
   bin:
     prettier: bin/prettier.cjs
-  checksum: c074283242714c401b7ba67a8c034c21610badaf8dde9346d74df021e37c975be582630c79dde660b9f959a00beb3cccd64277185a5a918cfa5fa36cff76bad7
+  checksum: fc3da17f1394f7e634eee762b1a42e0324cc6d78f8f966c746aed82c2712d24451db919e9dfa381b6fb4684b9cb04e25cfd08f47c55da92a814f9fa1e2427433
   languageName: node
   linkType: hard
 
@@ -15195,6 +15202,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "se-2@workspace:."
   dependencies:
+    "@openzeppelin/contracts": ^5.4.0
     husky: ~9.1.6
     lint-staged: ~13.2.2
   languageName: unknown
