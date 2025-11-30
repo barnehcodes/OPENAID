@@ -1,11 +1,12 @@
-# 🏗 Scaffold-ETH 2
+# 🌍 OpenAID
 
-<h4 align="center">
-  <a href="https://docs.scaffoldeth.io">Documentation</a> |
-  <a href="https://scaffoldeth.io">Website</a>
-</h4>
+**Decentralized Humanitarian Aid Platform**
 
-🧪 An open-source, up-to-date toolkit for building decentralized applications (dapps) on the Ethereum blockchain. It's designed to make it easier for developers to create and deploy smart contracts and build user interfaces that interact with those contracts.
+OpenAID is a blockchain-based platform for transparent disaster relief coordination. Built on Scaffold-ETH 2, it implements a three-token system to manage humanitarian aid distribution:
+
+- **DonationToken (ERC20)**: Fungible tokens representing fiat-backed donations
+- **InKindNFT (ERC721)**: NFTs representing physical in-kind donations (food, supplies, etc.)
+- **OpenAidCore**: Governance contract managing participant registry, crisis coordination, voting, and escrow
 
 ⚙️ Built using NextJS, RainbowKit, Hardhat, Wagmi, Viem, and Typescript.
 
@@ -27,54 +28,80 @@ Before you begin, you need to install the following tools:
 
 ## Quickstart
 
-To get started with Scaffold-ETH 2, follow the steps below:
+To get started with OpenAID, follow the steps below:
 
-1. Install dependencies if it was skipped in CLI:
+1. Install dependencies:
 
-```
-cd my-dapp-example
+```bash
 yarn install
 ```
 
 2. Run a local network in the first terminal:
 
-```
+```bash
 yarn chain
 ```
 
-This command starts a local Ethereum network using Hardhat. The network runs on your local machine and can be used for testing and development. You can customize the network configuration in `packages/hardhat/hardhat.config.ts`.
+This command starts a local Ethereum network using Hardhat. The network runs on your local machine and can be used for testing and development.
 
-3. On a second terminal, deploy the test contract:
+3. On a second terminal, deploy the OpenAID contracts:
 
-```
+```bash
 yarn deploy
 ```
 
-This command deploys a test smart contract to the local network. The contract is located in `packages/hardhat/contracts` and can be modified to suit your needs. The `yarn deploy` command uses the deploy script located in `packages/hardhat/deploy` to deploy the contract to the network. You can also customize the deploy script.
+This command deploys the three core smart contracts (DonationToken, InKindNFT, OpenAidCore) to the local network. The contracts are located in `packages/hardhat/contracts`.
 
 4. On a third terminal, start your NextJS app:
 
-```
+```bash
 yarn start
 ```
 
-Visit your app on: `http://localhost:3000`. You can interact with your smart contract using the `Debug Contracts` page. You can tweak the app config in `packages/nextjs/scaffold.config.ts`.
+Visit your app on: `http://localhost:3000`. You can interact with the OpenAID smart contracts using the `Debug Contracts` page.
 
-Run smart contract test with `yarn hardhat:test`
+## Testing
 
-- Edit your smart contracts in `packages/hardhat/contracts`
-- Edit your frontend homepage at `packages/nextjs/app/page.tsx`. For guidance on [routing](https://nextjs.org/docs/app/building-your-application/routing/defining-routes) and configuring [pages/layouts](https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts) checkout the Next.js documentation.
-- Edit your deployment scripts in `packages/hardhat/deploy`
+For a complete step-by-step testing guide including account setup, participant registration, token minting, crisis declaration, and voting workflows, please refer to **[TESTING_GUIDE.md](./TESTING_GUIDE.md)**.
 
+## Project Structure
+
+- **Smart Contracts** (`packages/hardhat/contracts`):
+  - `OpenAidCore.sol`: Central governance contract with role-based access control, participant registry, crisis coordination, and voting system
+  - `DonationToken.sol`: ERC20 token for fiat-backed donations
+  - `InKindNFT.sol`: ERC721 NFT for tracking physical donations
+  
+- **Frontend** (`packages/nextjs/app`):
+  - Built with Next.js 15 App Router
+  - `page.tsx`: Homepage with OpenAID branding
+  - `debug/`: Interactive contract debugging interface
+
+- **Deployment** (`packages/hardhat/deploy`):
+  - `00_deploy_openaid.ts`: Automated deployment script with correct dependency order
+
+## Key Features
+
+- **Role-Based Access Control**: Supports Donor, Beneficiary, NGO, GO, and Private Company roles
+- **Crisis Coordination**: Declare crises and elect coordinators through democratic voting
+- **Donation Tracking**: Transparent tracking of both fungible tokens and in-kind donations (NFTs)
+- **Escrow Management**: Secure holding of donations until crisis resolution
+- **Reputation System**: Built-in reputation tracking with slashing mechanisms
+- **NGO Verification**: Admin-controlled verification process for NGO participants
+
+## Smart Contract Testing
+
+Run smart contract tests with:
+
+```bash
+yarn hardhat:test
+```
 
 ## Documentation
 
-Visit our [docs](https://docs.scaffoldeth.io) to learn how to start building with Scaffold-ETH 2.
+- **[TESTING_GUIDE.md](./TESTING_GUIDE.md)**: Complete step-by-step testing workflow
+- **[.github/copilot-instructions.md](./.github/copilot-instructions.md)**: Development guidelines and patterns
+- **[Scaffold-ETH 2 Docs](https://docs.scaffoldeth.io)**: Learn more about the underlying framework
 
-To know more about its features, check out our [website](https://scaffoldeth.io).
+## Contributing
 
-## Contributing to Scaffold-ETH 2
-
-We welcome contributions to Scaffold-ETH 2!
-
-Please see [CONTRIBUTING.MD](https://github.com/scaffold-eth/scaffold-eth-2/blob/main/CONTRIBUTING.md) for more information and guidelines for contributing to Scaffold-ETH 2.
+We welcome contributions to OpenAID! Please see [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines.
